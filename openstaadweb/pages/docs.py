@@ -6,7 +6,6 @@ from openstaadweb.components.foother import footer
 def docs():
     return rx.vstack(
         navbar(),
-        rx.spacer(),
         docs_view(),
         rx.spacer(),
         footer(),
@@ -22,7 +21,23 @@ def docs_view():
     )
 
 def side_bar():
-    return rx.text("Side Bar")
+    return rx.accordion.root(
+        rx.accordion.item(
+            header="Introduction",
+            content="The first accordion item's content",
+        ),
+        rx.accordion.item(
+            header="Root",
+            content="The second accordion item's content",
+        ),
+        rx.accordion.item(
+            header="Geometry",
+            content="The third accordion item's content",
+        ),
+        variant="ghost",
+        color_scheme="red",
+        width = "300px"
+    )
 
 def content():
     return rx.text("Content")
